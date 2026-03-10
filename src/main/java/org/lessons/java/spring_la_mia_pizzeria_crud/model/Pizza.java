@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.persistence.Id;
 
 @Entity
@@ -16,12 +19,16 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotNull(message = "Nome non deve essere vuoto")
     private String nome;
+
     private String descrizione;
 
     @Column(name="foto_url")
     private String fotoUrl;
 
+    @NotNull(message = "Il prezzo è obbligatorio")
+    @Positive(message = "Il prezzo deve essere maggiore di zero")
     private BigDecimal prezzo;
 
     // Getter and Setter

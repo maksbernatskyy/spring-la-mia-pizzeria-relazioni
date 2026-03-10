@@ -29,27 +29,27 @@ public class PizzaController {
     public String index(Model model) {
         List<Pizza> result = repository.findAll();
         model.addAttribute("list", result);
-        return "/pizze/index";
+        return "pizze/index";
     }
 
     // Show
     @GetMapping("/{id}")
     public String show(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("pizza", repository.findById(id).get());
-        return "/pizze/show";
+        return "pizze/show";
     }
 
     // Store
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("pizza", new Pizza());
-        return "/pizze/create";
+        return "pizze/create";
     }
 
     @PostMapping("/create")
     public String store(@Valid @ModelAttribute("pizza") Pizza pizza, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "/create";
+            return "pizze/create";
         }
 
         repository.save(pizza);
