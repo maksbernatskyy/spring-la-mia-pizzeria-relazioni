@@ -19,7 +19,8 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "Nome non deve essere vuoto")
+    @NotNull(message = "Il nome è obbligatorio")
+    @NotBlank(message = "Nome non deve essere vuoto")
     private String nome;
 
     private String descrizione;
