@@ -49,6 +49,7 @@
                 <td th:text="*{fotoUrl}" />
                 <td th:text="|*{prezzo}€|" />
                 <td><a th:href="@{/pizze/{id}(id=*{id})}" class="btn btn-primary">Dettagli</a></td>
+                <td><a th:href="@{/pizze/edit/{id}(id=*{id})}" class="btn btn-secondary">Modifica</a></td>
               </tr>
             </tbody>
           </table>

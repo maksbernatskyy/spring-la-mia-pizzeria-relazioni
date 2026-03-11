@@ -25,9 +25,11 @@
           <form
             id="pizza-form"
             th:object="${pizza}"
-            th:action="@{/pizze/create}"
+            th:action="*{id != null} ? @{/pizze/edit/{id}(id=*{id})} : @{/pizze/create}"
             method="post"
+            th:fragment="form"
           >
+          <input type="hidden" th:field="*{id}">
             <div class="mb-3">
               <label for="nome" class="form-label">Nome</label>
               <input
