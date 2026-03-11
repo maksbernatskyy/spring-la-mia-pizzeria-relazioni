@@ -50,6 +50,11 @@
                 <td th:text="|*{prezzo}€|" />
                 <td><a th:href="@{/pizze/{id}(id=*{id})}" class="btn btn-primary">Dettagli</a></td>
                 <td><a th:href="@{/pizze/edit/{id}(id=*{id})}" class="btn btn-secondary">Modifica</a></td>
+                <td>
+                  <form action="#" th:action="@{'/pizze/delete/{id}'(id=*{id})}" method="post">
+                    <button class="btn btn-danger" type="submit" id="deleteButton">Elimina</button>
+                </form>
+              </td>
               </tr>
             </tbody>
           </table>
