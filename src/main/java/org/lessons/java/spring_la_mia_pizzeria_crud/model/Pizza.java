@@ -1,6 +1,7 @@
 package org.lessons.java.spring_la_mia_pizzeria_crud.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +12,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @Table(name = "pizze")
@@ -31,6 +33,9 @@ public class Pizza {
     @NotNull(message = "Il prezzo è obbligatorio")
     @Positive(message = "Il prezzo deve essere maggiore di zero")
     private BigDecimal prezzo;
+
+    @OneToMany(mappedBy = "pizza")
+    private List<Offerta> offerta;
 
     // Getter and Setter
 
